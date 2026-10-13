@@ -1,38 +1,27 @@
-
 import Link from "next/link";
 
-const tasks = [
-  { n: "03A", title: "Sourcing List for Body Replica", desc: "Body panels, structural materials, lighting, wheels, glass and interior parts.", href: "/work-to-do/body-replica" },
-  { n: "03B", title: "High-Performance EV Powertrain", desc: "Motor, inverter, battery, BMS, charging, controls and thermal management.", href: "/work-to-do/powertrain" },
-  { n: "03C", title: "Making It Street Legal", desc: "Research registration, vehicle approval, roadworthiness and safety requirements.", href: "/work-to-do/street-legal" },
+const cards = [
+  { href: "/work-to-do/body-replica", n: "01", t: "Body Replica", d: "Sourcing list for the shell, panels, lighting, glass, interior and finishing, with approximate China prices." },
+  { href: "/work-to-do/powertrain", n: "02", t: "High-Performance EV Powertrain", d: "Motor, inverter, battery, BMS, charger and high-voltage components with suggested specifications." },
+  { href: "/work-to-do/street-legal", n: "03", t: "Making It Street Legal", d: "A ten-part checklist covering approval, safety, testing, registration and insurance in India." },
 ];
 
 export default function WorkToDo() {
   return (
-    <main>
-      <nav className="navbar">
-        <Link href="/" className="brand"><span>▽</span> TORQUELAB</Link>
-        <div className="navlinks"><Link href="/">OVERVIEW</Link><a href="/#explore">ENGINEERING</a></div>
-        <span className="nav-cta">PROJECT WORKSPACE</span>
-      </nav>
-      <section className="page-shell">
-        <Link href="/" className="back-link">← BACK TO TORQUELAB</Link>
-        <p className="eyebrow">PROJECT WORKSPACE / TASKS</p>
-        <h1>From concept<br />to <span style={{color:"#ff6425"}}>construction.</span></h1>
-        <p className="page-intro">The working plan for the TorqueLab hypercar project. Select a workstream to explore components, indicative sourcing costs and the next steps.</p>
-        <div className="work-grid">
-          {tasks.map(t => (
-            <Link href={t.href} className="work-option" key={t.n}>
-              <span className="number">{t.n} / WORKSTREAM</span>
-              <h2>{t.title}</h2>
-              <p>{t.desc}</p>
-              <strong>OPEN WORKSTREAM ↗</strong>
-            </Link>
-          ))}
-        </div>
-        <div className="notice">Planning estimates only. Prices, availability, import duties and vehicle approval requirements must be verified before purchasing parts or starting construction.</div>
-      </section>
-      <footer><Link href="/" className="brand"><span>▽</span> TORQUELAB</Link><p>PROJECT WORKSPACE · 2026</p><Link href="/">HOME ↗</Link></footer>
-    </main>
+    <>
+      <p className="wtd-eyebrow">TorqueLab / Work to do</p>
+      <h1>Three builds to finish.</h1>
+      <p className="wtd-lead">Everything needed to move from concept to a road-ready electric hypercar: the body, the powertrain and the legal pathway.</p>
+      <div className="wtd-cards">
+        {cards.map((c) => (
+          <Link key={c.href} href={c.href} className="wtd-card">
+            <span className="wtd-num">{c.n}</span>
+            <h2>{c.t}</h2>
+            <p>{c.d}</p>
+            <span className="wtd-go">Open →</span>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
