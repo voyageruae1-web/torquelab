@@ -1,84 +1,204 @@
-
-import Link from "next/link";
+"use client";
 
 const sections = [
-  { n: "01", title: "Design", desc: "Form follows performance", icon: "◈" },
-  { n: "02", title: "Engineering Explorer", desc: "Explore the exploded vehicle", icon: "⌘" },
-  { n: "03", title: "Powertrain", desc: "Battery · Motor · Gearbox", icon: "ϟ" },
-  { n: "04", title: "Chassis", desc: "Suspension · Brakes · Frame", icon: "◇" },
-  { n: "05", title: "Aero & Thermal", desc: "Downforce · Cooling", icon: "〰" },
-  { n: "06", title: "Performance", desc: "Power · Speed · Control", icon: "↗" },
+  {
+    number: "01",
+    title: "Overview",
+    description: "The big picture. The complete system.",
+    className: "overview",
+    href: "#overview",
+  },
+  {
+    number: "02",
+    title: "Design",
+    description: "Form meets function.",
+    className: "design",
+    href: "#design",
+  },
+  {
+    number: "03",
+    title: "Engineering",
+    description: "Explore the complete machine.",
+    className: "engineering",
+    href: "#engineering",
+  },
+  {
+    number: "04",
+    title: "Powertrain",
+    description: "Battery · Motor · Gearbox",
+    className: "powertrain",
+    href: "/work-to-do/powertrain",
+  },
+  {
+    number: "05",
+    title: "Chassis",
+    description: "Suspension · Brakes · Frame",
+    className: "chassis",
+    href: "/work-to-do",
+  },
+  {
+    number: "06",
+    title: "Aero & Thermal",
+    description: "Downforce · Cooling · Drag",
+    className: "aero",
+    href: "#performance",
+  },
+  {
+    number: "07",
+    title: "Performance",
+    description: "Power · Speed · Control",
+    className: "performance",
+    href: "#performance",
+  },
 ];
 
 export default function Home() {
   return (
-    <main>
-      <nav className="navbar">
-        <Link href="/" className="brand"><span>▽</span> TORQUELAB</Link>
-        <div className="navlinks">
-          <a href="#overview">OVERVIEW</a>
-          <a href="#explore">ENGINEERING</a>
-          <a href="#specs">PERFORMANCE</a>
-        </div>
-        <Link href="/work-to-do" className="nav-cta">WORK TO DO ↗</Link>
-      </nav>
+    <main className="torquelab" id="overview">
+      <section className="hero">
+        <div className="hero-background" />
+        <div className="hero-shade" />
 
-      <section className="hero" id="overview">
+        <header className="navbar">
+          <a className="brand" href="#overview" aria-label="TorqueLab home">
+            <span className="brand-mark">▽</span>
+            <span>TORQUELAB</span>
+          </a>
+
+          <nav className="nav-links" aria-label="Main navigation">
+            <a className="nav-active" href="#overview">Overview</a>
+            <a href="#engineering">Engineering</a>
+            <a href="#performance">Performance</a>
+            <a href="/work-to-do">Work to do</a>
+          </nav>
+
+          <a className="configure-button" href="/work-to-do">
+            Configure <span>↗</span>
+          </a>
+        </header>
+
+        <div className="electric-label">
+          <span>Pure electric power</span>
+          <span className="label-divider" />
+          <span>Zero emissions</span>
+        </div>
+
         <div className="hero-copy">
-          <p className="eyebrow">ELECTRIC HYPERCAR PROJECT / 001</p>
-          <h1>BUILT TO<br />DEFY THE<br /><span>ORDINARY.</span></h1>
-          <p className="hero-desc">
-            A ground-up exploration of electric performance,
-            automotive engineering and an uncompromising design.
+          <p className="eyebrow">Electric hypercar project</p>
+
+          <h1>
+            Engineered
+            <br />
+            Without Compromise.
+          </h1>
+
+          <p className="hero-description">
+            Exploring the engineering behind an extraordinary
+            electric hypercar. Design, power, precision and
+            performance.
           </p>
-          <div className="hero-actions">
-            <a className="button-primary" href="#explore">EXPLORE ENGINEERING ↘</a>
-            <Link className="button-outline" href="/work-to-do">VIEW PROJECT PLAN ↗</Link>
+
+          <div className="specifications">
+            <div className="spec">
+              <strong>250 <span>kW</span></strong>
+              <span className="spec-caption">Target motor</span>
+            </div>
+            <div className="spec">
+              <strong>800 <span>V</span></strong>
+              <span className="spec-caption">Power architecture</span>
+            </div>
+            <div className="spec">
+              <strong>01</strong>
+              <span className="spec-caption">Build project</span>
+            </div>
           </div>
-          <div className="hero-stats" id="specs">
-            <div><strong>EV</strong><span>POWERTRAIN</span></div>
-            <div><strong>360°</strong><span>CAR EXPLORATION</span></div>
-            <div><strong>001</strong><span>PROJECT SERIES</span></div>
+
+          <a className="orange-button" href="#engineering">
+            Explore engineering <span>→</span>
+          </a>
+
+          <div className="hero-footnote">
+            <span>TORQUELAB / PROJECT 001</span>
+            <span>DESIGNED FOR PERFORMANCE</span>
           </div>
         </div>
-        <div className="hero-visual">
-          <div className="visual-label">TORQUELAB / CONCEPT STUDY</div>
-          <div className="car-image" role="img" aria-label="Dark performance sports car concept" />
-          <div className="image-caption"><span>TL—001</span><span>DESIGN STUDY / 2026</span></div>
-          <div className="hero-index">01 <span>—</span> 04</div>
+
+        <div className="slide-indicator" aria-label="Slide 1 of 4">
+          <span>01</span>
+          <span className="slide-line" />
+          <span>04</span>
         </div>
+
+        <div className="hero-bottom-glow" />
       </section>
 
-      <section className="manifesto">
-        <p className="eyebrow">THE VISION</p>
-        <h2>Every component has a purpose.<br />Every system works as one.</h2>
-        <p>From the body shell to the electric drive system, explore the ideas, parts and engineering behind our hypercar project.</p>
+      <section className="features" aria-label="Core principles">
+        <article className="feature">
+          <span className="feature-icon">ϟ</span>
+          <div>
+            <h2>Power</h2>
+            <p>Electric powertrain concepts and component integration.</p>
+          </div>
+        </article>
+
+        <article className="feature">
+          <span className="feature-icon target-icon">◎</span>
+          <div>
+            <h2>Control</h2>
+            <p>Chassis dynamics, braking and vehicle control systems.</p>
+          </div>
+        </article>
+
+        <article className="feature">
+          <span className="feature-icon">◇</span>
+          <div>
+            <h2>Efficiency</h2>
+            <p>Aerodynamics, cooling and energy management.</p>
+          </div>
+        </article>
       </section>
 
-      <section className="engineering section-pad" id="explore">
-        <div className="section-heading">
-          <div><p className="eyebrow">DISCOVER TORQUELAB</p><h2>Engineering, <span>explored.</span></h2></div>
-          <p>Six systems. One complete machine.</p>
+      <section className="engineering-section" id="engineering">
+        <div className="section-intro">
+          <p className="eyebrow">— Explore engineering</p>
+          <h2>
+            Dive into the
+            <br />
+            <span>Details.</span>
+          </h2>
+          <p className="intro-description">
+            Seven systems. One complete machine.
+          </p>
+          <a className="orange-button view-all" href="/work-to-do">
+            View all sections <span>→</span>
+          </a>
         </div>
-        <div className="engineering-grid">
-          {sections.map((s) => (
-            <a className="engineering-card" href="/work-to-do" key={s.n}>
-              <div className="card-top"><span>{s.n} / SYSTEM</span><span className="card-icon">{s.icon}</span></div>
-              <div className="card-art">{s.n === "03" ? "EV / DRIVE" : s.n === "02" ? "EXPLODED / VIEW" : "TL—001"}</div>
-              <h3>{s.title}</h3>
-              <p>{s.desc}</p>
-              <div className="card-bottom"><span>EXPLORE SYSTEM</span><span>↗</span></div>
+
+        <div className="section-cards">
+          {sections.map((section) => (
+            <a
+              className={`section-card ${section.className}`}
+              href={section.href}
+              key={section.number}
+            >
+              <div className="card-image">
+                <span className="card-number">{section.number}</span>
+              </div>
+              <div className="card-content">
+                <h3>{section.title}</h3>
+                <p>{section.description}</p>
+                <span className="card-arrow" aria-hidden="true">↗</span>
+              </div>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="work-banner">
-        <div><p className="eyebrow">FROM CONCEPT TO BUILD</p><h2>Turn the vision<br />into a real project.</h2><p>Parts sourcing, EV powertrain planning and road-legal research—all in one place.</p></div>
-        <Link href="/work-to-do" className="button-primary">OPEN WORK TO DO ↗</Link>
-      </section>
-
-      <footer><Link href="/" className="brand"><span>▽</span> TORQUELAB</Link><p>INDEPENDENT HYPERCAR ENGINEERING CONCEPT · 2026</p><a href="#overview">BACK TO TOP ↑</a></footer>
+      <footer className="footer">
+        <a className="footer-brand" href="#overview">TORQUELAB</a>
+        <span>PROJECT 001 · ELECTRIC PERFORMANCE</span>
+        <a href="/work-to-do">Explore the build →</a>
+      </footer>
     </main>
   );
 }
